@@ -7,7 +7,7 @@ Version 0.2 was successfully used to assemble the mitogenomes of the pearl razor
 To make it run:
 1. Clone this repository.
 2. Go to your local utils/refseq_dir.
-3. Uncompress the refseq databases locally, example:  tar jvxf refseq81m.tar.bz2
+3. Uncompress the refseq databases locally  (example:  tar jvxf refseq81m.tar.bz2). This will allow you to run mitos stand-alone without using the web interface.
 4. Create config files for your genome (check .yaml and .spec for slurm in example/configs).
 5. Run the pipeline with snakemake pointing to the snakefile in bin.
    
