@@ -258,7 +258,6 @@ rule orient_reference_MT:
     genetic_code = config["annotation"]["genetic_code"],
     mitos_options = config["annotation"]["mitos_options"],
     refseq_db = config["annotation"]["refseq_database"],
-    tolid = config["parameters"]["tolid"],
   conda:
     "../envs/mitos.yaml"
   threads: 8
@@ -266,6 +265,7 @@ rule orient_reference_MT:
     logs_dir+ str(date) + ".j%j.orient_reference_MT.out",
     logs_dir+ str(date) + ".j%j.orient_reference_MT.err",
   shell:
+    "echo workdir is ; pwd ;"
     "cd  mitogenome_ref ; "
    
     # Do not link polished contig 
@@ -282,10 +282,10 @@ rule orient_reference_MT:
     "mv MT_REF.scaffolds.oriented.fa out/; "
     #4. rename and format to ensure multiline fasta
      "cd out/; "
-     "{params.scripts}rename_fasta_seq.pl -f  {output.oriented} -n {params.tolid}_MT | {params.scripts}FastaToTbl | {params.scripts}TblToFasta > {output.formatted} ;"
+     "{params.scripts}rename_fasta_seq.pl -f  {output.oriented} -n MT_REF_oriented | {params.scripts}FastaToTbl | {params.scripts}TblToFasta > {output.formatted} ;"
     # 5. Reannotate formatted mitogenome
       "runmitos.py -i {output.formatted} -c {params.genetic_code} {params.mitos_options} -r {params.refseq_db} -R {params.refseq_dir} -o annotation_2 ; "
-    # 6. format annotation gff and copy final fasta 
-      "cd ../ ; "
-      "cp {output.formatted}  {params.tolid}_MT.fa ; "
-      "{params.scripts}parse_mitos_gff.pl -g {output.annotation} -p MT{params.tolid} > MT{params.tolid}.gff3 ; "
+    # 6. symbolic link to out file  
+    "cd out ;"
+    "ln -s {output.formatted} . ;"
+  
