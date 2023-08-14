@@ -12,7 +12,8 @@ To make it run:
 5. Run the pipeline with snakemake pointing to the snakefile in bin.
    
 # Contributors
-Fernando Cruz, Jèssica Gómez-Garrido and Tyler Alioto. Genome Assembly and Annotation Team (CNAG). Barcelona, Spain.
+Fernando Cruz, Jèssica Gómez-Garrido and Tyler Alioto. Genome Assembly and Annotation Team (CNAG).
+
 Visit our website for more info about the team: https://denovo.cnag.cat/about
 
 # References
