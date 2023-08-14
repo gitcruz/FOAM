@@ -11,6 +11,10 @@ To make it run:
 4. Create config files for your genome (check the X. novacula example .yaml and .spec for a slurm cluster in example/configs).
 5. Run the pipeline with snakemake pointing to the snakefile in bin.
    
+# Contributors
+Fernando Cruz, Jèssica Gómez-Garrido and Tyler Alioto. Genome Assembly and Annotation Team (CNAG). Barcelona, Spain.
+Visit our website for more info about the team: https://denovo.cnag.cat/about
+
 # References
 A chromosome-level reference genome for the common octopus, _Octopus vulgaris_ (Cuvier, 1797)
 Dalila Destanović, ProfileDarrin T. Schultz, Ruth Styfhals, Fernando Cruz, Jèssica Gómez-Garrido, Marta Gut, Ivo Gut, Graziano Fiorito, Oleg Simakov, Tyler S. Alioto, Giovanna Ponte, Eve Seuntjens.
